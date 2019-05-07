@@ -1,1 +1,3 @@
-coucou c'est un test
+1 design patern chacun
+Tuto angular
+demander à lucie info sur api ung
