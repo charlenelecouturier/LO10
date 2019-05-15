@@ -11,17 +11,20 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12">
-      <h2>Mes appareils</h2>
+      <h2>Mes tweets</h2>
       <ul class="list-group">
 
 
                        <ul>
-    <li *ngFor="let tweet of tweets">{{ tweet.name }}</li>
+ <li *ngFor="let tweet of tweets">{{tweet.text}}</li>
+      <li class="list-group-item">
+  <h4>tweet : {{getTweet()}}</h4>
+</li>
 </ul>
       </ul>
 
    <button class="btn btn-primary"
-         (click)="onFetch()">Récupérer les appareils</button>
+         (click)="onFetch()">Récupérer les tweets</button>
 </div>
 
 <router-outlet></router-outlet>

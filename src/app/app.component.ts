@@ -12,10 +12,15 @@ export class AppComponent implements OnInit, OnDestroy {
   title = 'Plage des finaux';
   TWEETSubscription: Subscription;
   tweets:any[];
+ test=[];
 
 constructor(private twitterService: TwitterService) {
   }
 
+  getTweet(){
+    this.test.push('Mango');
+    return this.tweets.length;
+  }
 
   ngOnInit() {
   this.TWEETSubscription = this.twitterService.tweetSubject.subscribe(
