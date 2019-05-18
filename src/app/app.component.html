@@ -3,28 +3,28 @@
   <h1>
    Bienvenue sur l'application {{ title }}!
   </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
 
 </div>
 
 
 <div class="container">
-  <div class="row">
     <div class="col-xs-12">
       <h2>Mes tweets</h2>
-      <ul class="list-group">
+<div  *ngFor="let tweet of tweets">
+  <blockquote class="twitter-tweet" >
+   <a href={{getUrl(tweet)}}> <p><b>{{tweet.text}}</b></p>
+<p class="user"> - @{{tweet.user.screen_name}}</p></a>
+  </blockquote>
+</div>
 
 
-                       <ul>
- <li *ngFor="let tweet of tweets">{{tweet.text}}</li>
-      <li class="list-group-item">
-  <h4>tweet : {{getTweet()}}</h4>
-</li>
-</ul>
-      </ul>
+
+<!-- {{tweet.entities.urls[0].url}} !-->
+
 
    <button class="btn btn-primary"
          (click)="onFetch()">Récupérer les tweets</button>
+</div>
 </div>
 
 <router-outlet></router-outlet>

@@ -22,6 +22,10 @@ constructor(private twitterService: TwitterService) {
     return this.tweets.length;
   }
 
+  getUrl(tweet)
+  {
+    return "http://twitter.com/"+tweet.user.id_str+"/status/" +tweet.id_str;
+  }
   ngOnInit() {
   this.TWEETSubscription = this.twitterService.tweetSubject.subscribe(
    (tweets: any[]) => {
