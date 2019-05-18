@@ -9,7 +9,7 @@
 
 <div class="container">
     <div class="col-xs-12">
-      <h2>Mes tweets</h2>
+      <h2>Tweets sur l'évenements</h2>
 <div  *ngFor="let tweet of tweets">
   <blockquote class="twitter-tweet" >
    <a href={{getUrl(tweet)}}> <p><b>{{tweet.text}}</b></p>
@@ -23,7 +23,7 @@
 
 
    <button class="btn btn-primary"
-         (click)="onFetch()">Récupérer les tweets</button>
+         (click)="onFetch()">Afficher les tweets</button>
 </div>
 </div>
 

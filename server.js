@@ -19,7 +19,7 @@ var corsOption = {
 };
 app.use(cors(corsOption));
 app.get('/home_timeline', (req, res) => {
-    const params = { q: 'plage', lang :'fr', geocode : '48.3,4.0833,10km', count: 10 };
+    const params = { q: 'UTT', lang :'fr', geocode : '48.3,4.0833,10km', count: 10 };
 
     client
     .get(`search/tweets`, params)
