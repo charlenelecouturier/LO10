@@ -1,30 +1,4 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-   Bienvenue sur l'application {{ title }}!
-  </h1>
+<app-navbar></app-navbar>
 
-</div>
-
-
-<div class="container">
-    <div class="col-xs-12">
-      <h2>Tweets sur l'évenements</h2>
-<div  *ngFor="let tweet of tweets">
-  <blockquote class="twitter-tweet" >
-   <a href={{getUrl(tweet)}}> <p><b>{{tweet.text}}</b></p>
-<p class="user"> - @{{tweet.user.screen_name}}</p></a>
-  </blockquote>
-</div>
-
-
-
-<!-- {{tweet.entities.urls[0].url}} !-->
-
-
-   <button class="btn btn-primary"
-         (click)="onFetch()">Afficher les tweets</button>
-</div>
-</div>
-
+<twitter-open></twitter-open>
 <router-outlet></router-outlet>

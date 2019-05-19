@@ -1,0 +1,27 @@
+<h2 mat-dialog-title>On parle de l'évènement sur Twitter !</h2>
+<mat-dialog-content class="mat-typography">
+
+
+
+
+
+
+
+
+  <div  *ngFor="let tweet of tweets">
+    <blockquote class="twitter-tweet" >
+     <a href={{getUrl(tweet)}}> <p><b>{{tweet.text}}</b></p>
+  <p class="user"> - @{{tweet.user.screen_name}}</p></a>
+    </blockquote>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+</mat-dialog-actions>
+
+<!-- {{tweet.entities.urls[0].url}}
+
+
+   <button class="btn btn-primary"
+         (click)="onFetch()">Afficher les tweets</button>
+</div>!-->
