@@ -5,6 +5,8 @@ import {HttpClientModule} from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TwitterService } from './services/twitter.service';
+import {MeteoService } from './services/meteo.service';
+
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { ModalModule } from 'ngx-bootstrap/modal';
@@ -14,6 +16,7 @@ import {MatButtonModule, MatCheckboxModule} from '@angular/material';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatDialogModule} from '@angular/material/dialog';
 import { TwitterComponent, TwitterOpenComponent } from './twitter/twitter.component';
+import { MeteoComponent } from './meteo/meteo.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +24,7 @@ import { TwitterComponent, TwitterOpenComponent } from './twitter/twitter.compon
     NavbarComponent,
     TwitterComponent,
     TwitterOpenComponent,
+    MeteoComponent,
   ],
   imports: [
     BrowserModule,
@@ -40,7 +44,8 @@ import { TwitterComponent, TwitterOpenComponent } from './twitter/twitter.compon
   TwitterComponent,
 ],
   providers: [
-    TwitterService
+    TwitterService,
+    MeteoService
 
   ],
   bootstrap: [AppComponent],

@@ -13,15 +13,12 @@ import 'hammerjs';
 export class TwitterComponent implements OnInit, OnDestroy {
   TWEETSubscription: Subscription;
   tweets:any[];
- test=[];
+
 
 constructor(private twitterService: TwitterService) {
   }
 
-  getTweet(){
-    this.test.push('Mango');
-    return this.tweets.length;
-  }
+
 
 
 
