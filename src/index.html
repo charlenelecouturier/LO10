@@ -8,10 +8,68 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <script src='https://api.mapbox.com/mapbox-gl-js/v0.54.0/mapbox-gl.js'></script>
+  <link href='https://api.mapbox.com/mapbox-gl-js/v0.54.0/mapbox-gl.css' rel='stylesheet' />
 </head>
+
+
+
+
 <body ng-app='LO10'>
   <app-root></app-root>
+  <div id='map' style='width: 100%; height: 600px;'></div>
+  <div id='menu'>
+    <input id='streets-v11' type='radio' name='rtoggle' value='streets'>
+    <label for='streets'>streets</label>
+    <input id='light-v10' type='radio' name='rtoggle' value='light'>
+    <label for='light'>light</label>
+    <input id='dark-v10' type='radio' name='rtoggle' value='dark'>
+    <label for='dark'>dark</label>
+    <input id='outdoors-v11' type='radio' name='rtoggle' value='outdoors' checked='checked'>
+    <label for='outdoors'>outdoors</label>
+    <input id='satellite-v9' type='radio' name='rtoggle' value='satellite'>
+    <label for='satellite'>satellite</label>
+  </div>
 
+  <script>
+    mapboxgl.accessToken = 'pk.eyJ1Ijoib3hyb24iLCJhIjoiY2p2cnM0dzdqMHJkaTN5bHFiMmFodHc5NyJ9.kCceEqHa9xFwQApj23rErA';
+    var map = new mapboxgl.Map({
+      container: 'map',
+      style: 'mapbox://styles/oxron/cjw9iveb906611cpd5fto3p0h',
+      center: [4.167188 , 48.198046 ], // starting position
+      zoom: 15 // starting zoom
+    });
 
+    map.addControl(new mapboxgl.NavigationControl());
+    var layerList = document.getElementById('menu');
+    var inputs = layerList.getElementsByTagName('input');
+
+    function switchLayer(layer) {
+      var layerId = layer.target.id;
+      map.setStyle('mapbox://styles/mapbox/' + layerId);
+    }
+
+    for (var i = 0; i < inputs.length; i++) {
+      inputs[i].onclick = switchLayer;
+    }
+
+    map.on('click', function(e) {
+      var features = map.queryRenderedFeatures(e.point, {
+        layers: ['terre-rouge'] // replace this with the name of the layer
+      });
+
+      if (!features.length) {
+        return;
+      }
+
+      var feature = features[0];
+
+      var popup = new mapboxgl.Popup({ offset: [0, -15] })
+        .setLngLat(feature.geometry.coordinates)
+        .setHTML('<h3>' + feature.properties.title + '</h3><p>' + feature.properties.description + '</p>')
+        .setLngLat(feature.geometry.coordinates)
+        .addTo(map);
+    });
+  </script>
 </body>
 </html>
