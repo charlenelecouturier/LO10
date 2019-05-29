@@ -42,6 +42,9 @@ image(description){
           case 'rain':
         return    this.src="http:\//openweathermap.org/img/w/10d.png";
             break;
+            case 'light rain':
+              return    this.src="http:\//openweathermap.org/img/w/10d.png";
+            break;
             case 'thunderstorm':
           return    this.src="http:\//openweathermap.org/img/w/11d.png";
               break;
