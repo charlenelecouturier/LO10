@@ -5,7 +5,7 @@ import { Subject } from 'rxjs/Subject';
   providedIn: 'root'
 })
 export class MeteoService {
-public meteo;
+public meteo:any;
     constructor(private httpClient: HttpClient) {
      }
 
@@ -13,7 +13,7 @@ public meteo;
 
      getMeteoFromServer() {
 
-       return this.httpClient.get('http://api.openweathermap.org/data/2.5/weather?lat=48.1958&lon=4.1686&APPID=98390e412efe7676508d16f0d4c1e10e&units=metric');
+       return this.httpClient.get<any>('http://api.openweathermap.org/data/2.5/weather?lat=48.1958&lon=4.1686&APPID=98390e412efe7676508d16f0d4c1e10e&units=metric');
 
    }
  }

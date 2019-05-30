@@ -49,3 +49,7 @@ button.twit{
 margin-left: 5%;
 
 }
+
+a:link, a:visited,a:hover, a:active{
+  color: white;
+}
