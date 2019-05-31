@@ -1,4 +1,21 @@
-<app-navbar></app-navbar>
+<mat-sidenav-container class="example-container">
+  <mat-sidenav id ="sidenav1" #sidenav mode="over">
+  <div *ngFor="let appareil of data" > {{appareil.name}}</div>
+</mat-sidenav>
+  <mat-sidenav-content>
+    <app-navbar></app-navbar>
+    <button mat-button (click)="sidenav.toggle()">Infos utiles</button>
+    <twitter-open></twitter-open>
+
+    <button mat-button onclick="javascript:location.href='https://billetterie.bde.utt.fr/'">Billeterie</button>
+
+<app-map></app-map>
+
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+
+
 
 
 <router-outlet></router-outlet>

@@ -1,11 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {HttpClientModule} from '@angular/common/http';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TwitterService } from './services/twitter.service';
 import {MeteoService } from './services/meteo.service';
+import {FirebaseService } from './services/firebase.service';
 
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
@@ -17,7 +17,8 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatDialogModule} from '@angular/material/dialog';
 import { TwitterComponent, TwitterOpenComponent } from './twitter/twitter.component';
 import { MeteoComponent } from './meteo/meteo.component';
-
+import { MapComponent } from './map/map.component';
+import {MatSidenavModule} from '@angular/material/sidenav';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { MeteoComponent } from './meteo/meteo.component';
     TwitterComponent,
     TwitterOpenComponent,
     MeteoComponent,
+    MapComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,7 +40,8 @@ import { MeteoComponent } from './meteo/meteo.component';
    MatButtonModule,
    MatToolbarModule,
    MatDialogModule,
-   MatCheckboxModule
+   MatCheckboxModule,
+   MatSidenavModule
  ],
 
  entryComponents: [
