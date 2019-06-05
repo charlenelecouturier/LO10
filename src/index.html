@@ -6,11 +6,51 @@
   <base href="/">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
 <body ng-app='LO10'>
   <app-root></app-root>
+  <script>
+    window.fbAsyncInit = function() {
+      FB.init({
+        appId      : '2062220704086998',
+        cookie     : true,
+        xfbml      : true,
+        version    : 'v3.3'
+      });
+
+      FB.AppEvents.logPageView();
+
+      FB.getLoginStatus(function(response) {
+          statusChangeCallback(response);
+
+      });
+    };
+
+    (function(d, s, id){
+       var js, fjs = d.getElementsByTagName(s)[0];
+       if (d.getElementById(id)) {return;}
+       js = d.createElement(s); js.id = id;
+       js.src = "https://connect.facebook.net/en_US/sdk.js";
+       fjs.parentNode.insertBefore(js, fjs);
+     }(document, 'script', 'facebook-jssdk'));
+
+    function statusChangeCallback(response){
+      // var isConnected = null;
+      // console.log("status :", response.status);
+      //
+      // if (response.status == "connected") {
+      //   isConnected = true;
+      //   console.log("is connected");
+      // }else {
+      //   isConnected = false;
+      //   console.log("is not connected");
+      //   FB.login()
+      // }
+    }
+  </script>
+
 
 
 </body>

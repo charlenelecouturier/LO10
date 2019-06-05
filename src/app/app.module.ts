@@ -11,12 +11,27 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { NavbarComponent } from './navbar/navbar.component';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatButtonModule, MatCheckboxModule} from '@angular/material';
-import {MatToolbarModule} from '@angular/material/toolbar';
-import {MatDialogModule} from '@angular/material/dialog';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatButtonModule, MatCheckboxModule } from '@angular/material';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatDialogModule } from '@angular/material/dialog';
 import { TwitterComponent, TwitterOpenComponent } from './twitter/twitter.component';
 import { MeteoComponent } from './meteo/meteo.component';
+import { FacebookComponent } from './facebook/facebook.component';
+import { AuthComponent } from './auth/auth.component';
+import { AppareilViewComponent } from './appareil-view/appareil-view.component';
+
+// import { MonPremierComponent } from './mon-premier/mon-premier.component';
+import { FormsModule } from '@angular/forms';
+// import { AppareilService } from './services/appareil.service';
+import { Routes } from '@angular/router';
+import { RouterModule } from '@angular/router';
+
+const appRoutes: Routes = [
+  { path: 'map', component: AppareilViewComponent },
+  { path: 'auth', component: AuthComponent },
+  { path: '', component: AppareilViewComponent }
+];
 
 @NgModule({
   declarations: [
@@ -25,6 +40,9 @@ import { MeteoComponent } from './meteo/meteo.component';
     TwitterComponent,
     TwitterOpenComponent,
     MeteoComponent,
+    FacebookComponent,
+    AuthComponent,
+    AppareilViewComponent,
   ],
   imports: [
     BrowserModule,
@@ -37,7 +55,8 @@ import { MeteoComponent } from './meteo/meteo.component';
    MatButtonModule,
    MatToolbarModule,
    MatDialogModule,
-   MatCheckboxModule
+   MatCheckboxModule,
+   RouterModule.forRoot(appRoutes)
  ],
 
  entryComponents: [
