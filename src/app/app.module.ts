@@ -21,6 +21,7 @@ import { MapComponent } from './map/map.component';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { InstaComponent } from './insta/insta.component';
 import {RouterModule, Routes} from '@angular/router';
+import { FooterComponent } from './footer/footer.component';
 
 const appRoutes: Routes = [
   { path: '', component: MapComponent },
@@ -36,6 +37,7 @@ const appRoutes: Routes = [
     MeteoComponent,
     MapComponent,
     InstaComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,

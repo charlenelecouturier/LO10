@@ -1,2 +1,16 @@
-<ul id="rudr_instafeed">
-</ul>
+<div  class= "container"*ngIf="data!=undefined">
+<div class="title">
+
+<h1> Nos photos de l'évènement :</h1></div>
+
+
+<ul *ngFor="let datas of data" >
+  <li class="wrapper">
+    <a href="{{datas.link}}">   <img class="insta-image" src={{datas.images.standard_resolution.url}} /></a>
+<br>
+
+
+   <div class="img-info">{{datas.likes.count}}  ❤</div>
+  </li>
+  </ul>
+</div>

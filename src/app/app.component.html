@@ -5,6 +5,7 @@
       <div *ngIf="data!=undefined">
 
   <br>
+      <div class="container">
 <h3> <b>Programme du jour : </b></h3>
 <br>
 
@@ -38,7 +39,7 @@
   <li *ngFor="let menu of data[1].Menu[1].Nourriture" > {{menu.name}} : {{menu.price}}€</li>
   </ul>
 </div>
-  </div>
+  </div>  </div>
 </div>
 
 </mat-sidenav>
@@ -51,12 +52,7 @@
     <button mat-button routerLink="insta" routerLinkActive="active">Les photos Instagram</button>
     <button mat-button routerLink="" routerLinkActive="active">Map</button>
     <router-outlet></router-outlet>
+    <app-footer></app-footer>
 
   </mat-sidenav-content>
 </mat-sidenav-container>
-
-
-
-
-
-
