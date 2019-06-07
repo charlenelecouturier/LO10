@@ -19,6 +19,13 @@ import { TwitterComponent, TwitterOpenComponent } from './twitter/twitter.compon
 import { MeteoComponent } from './meteo/meteo.component';
 import { MapComponent } from './map/map.component';
 import {MatSidenavModule} from '@angular/material/sidenav';
+import { InstaComponent } from './insta/insta.component';
+import {RouterModule, Routes} from '@angular/router';
+
+const appRoutes: Routes = [
+  { path: '', component: MapComponent },
+  { path: 'insta', component: InstaComponent },
+];
 
 @NgModule({
   declarations: [
@@ -28,6 +35,7 @@ import {MatSidenavModule} from '@angular/material/sidenav';
     TwitterOpenComponent,
     MeteoComponent,
     MapComponent,
+    InstaComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,7 +49,8 @@ import {MatSidenavModule} from '@angular/material/sidenav';
    MatToolbarModule,
    MatDialogModule,
    MatCheckboxModule,
-   MatSidenavModule
+   MatSidenavModule,
+   RouterModule.forRoot(appRoutes)
  ],
 
  entryComponents: [

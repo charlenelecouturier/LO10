@@ -48,8 +48,9 @@
     <twitter-open></twitter-open>
 
     <button mat-button onclick="javascript:location.href='https://billetterie.bde.utt.fr/'">Billeterie</button>
-
-<app-map></app-map>
+    <button mat-button routerLink="insta" routerLinkActive="active">Les photos Instagram</button>
+    <button mat-button routerLink="" routerLinkActive="active">Map</button>
+    <router-outlet></router-outlet>
 
   </mat-sidenav-content>
 </mat-sidenav-container>
@@ -58,4 +59,4 @@
 
 
 
-<router-outlet></router-outlet>
+
