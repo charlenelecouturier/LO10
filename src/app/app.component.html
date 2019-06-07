@@ -2,6 +2,8 @@
   <mat-sidenav id ="sidenav1" #sidenav mode="over">
 
     <div class="container">
+      <div *ngIf="data!=undefined">
+
   <br>
 <h3> <b>Programme du jour : </b></h3>
 <br>
@@ -37,6 +39,8 @@
   </ul>
 </div>
   </div>
+</div>
+
 </mat-sidenav>
   <mat-sidenav-content>
     <app-navbar></app-navbar>
