@@ -49,6 +49,9 @@ var  description= this.meteo.weather[0].description;
             case 'light rain':
               return    this.src="http:\//openweathermap.org/img/w/10d.png";
             break;
+            case 'moderate rain':
+              return    this.src="http:\//openweathermap.org/img/w/10d.png";
+            break;
             case 'thunderstorm':
           return    this.src="http:\//openweathermap.org/img/w/11d.png";
               break;
