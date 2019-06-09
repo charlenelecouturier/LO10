@@ -45,7 +45,7 @@
 </mat-sidenav>
   <mat-sidenav-content>
     <app-navbar></app-navbar>
-    <button mat-button (click)="sidenav.toggle()">Infos utiles</button>
+    <button mat-button (click)="onFetch(); sidenav.toggle()">Infos utiles</button>
     <twitter-open></twitter-open>
 
     <button mat-button onclick="javascript:location.href='https://billetterie.bde.utt.fr/'">Billeterie</button>

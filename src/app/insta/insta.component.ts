@@ -12,33 +12,28 @@ declare let window: any;
   styleUrls: ['./insta.component.css']
 })
 export class InstaComponent implements OnInit {
-subscription: Subscription;
   data:any;
-instaIMG  = "";
- imgLink   = "";
- userLikes = "";
+
 
   constructor(private instaService: InstaService) { }
 
   ngOnInit() {
-  this.subscription = this.instaService.subject.subscribe(
-   (data) => {
-      this.data = data;
-     }
+    this.onFetch();
+    window.setInterval(() =>this.onFetch(), 300000);// on actualise le fil toutes les 5 minutes (rate limite = 60 requetes  pour 1 minutes d'après l'api  openweathermap)
 
-  );
-this.onFetch();
 }
 
 ngOnDestroy(){
-this.subscription.unsubscribe();
 window.clearInterval();
 
 }
   onFetch() {
-    this.instaService.getFromServer();
-    window.setInterval(() =>this.instaService.getFromServer(), 300000);// on actualise le fil toutes les 5 minutes (rate limite = 180 requetes search/tweets pour 15 minutes d'après l'api twitter)
-
+    //window.setInterval(() =>this.instaService.getFromServer(), 300000);// on actualise le fil toutes les 5 minutes (rate limite = 180 requetes search/tweets pour 15 minutes d'après l'api twitter)
+    this.instaService.getFromServer()
+    .subscribe(
+    res =>this.data=res.data,
+    err =>console.log(err)
+    )
 
 }
 }
