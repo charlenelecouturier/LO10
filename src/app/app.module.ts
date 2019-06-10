@@ -7,6 +7,9 @@ import { TwitterService } from './services/twitter.service';
 import {MeteoService } from './services/meteo.service';
 import {FirebaseService } from './services/firebase.service';
 import { HttpErrorInterceptor } from './http-error-interceptor';
+import { HttpURLInterceptor } from './http-urlinterceptor';
+
+
 import {InstaService } from './services/insta.service';
 
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
@@ -67,10 +70,14 @@ const appRoutes: Routes = [
     FirebaseService,
     {
      provide: HTTP_INTERCEPTORS,
+     useClass: HttpURLInterceptor,
+     multi: true
+   },
+    {
+     provide: HTTP_INTERCEPTORS,
      useClass: HttpErrorInterceptor,
      multi: true
-   }
-
+   },
   ],
   bootstrap: [AppComponent],
 })
