@@ -27,6 +27,7 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import { InstaComponent } from './insta/insta.component';
 import {RouterModule, Routes} from '@angular/router';
 import { FooterComponent } from './footer/footer.component';
+import { AirComponent } from './air/air.component';
 
 const appRoutes: Routes = [
   { path: '', component: MapComponent },
@@ -43,6 +44,7 @@ const appRoutes: Routes = [
     MapComponent,
     InstaComponent,
     FooterComponent,
+    AirComponent,
   ],
   imports: [
     BrowserModule,
