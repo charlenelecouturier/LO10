@@ -1,11 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {HttpClientModule} from '@angular/common/http';
+import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TwitterService } from './services/twitter.service';
 import {MeteoService } from './services/meteo.service';
 import {FirebaseService } from './services/firebase.service';
+import { HttpErrorInterceptor } from './http-error-interceptor';
+import {InstaService } from './services/insta.service';
 
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
@@ -60,7 +62,14 @@ const appRoutes: Routes = [
 ],
   providers: [
     TwitterService,
-    MeteoService
+    MeteoService,
+    InstaService,
+    FirebaseService,
+    {
+     provide: HTTP_INTERCEPTORS,
+     useClass: HttpErrorInterceptor,
+     multi: true
+   }
 
   ],
   bootstrap: [AppComponent],

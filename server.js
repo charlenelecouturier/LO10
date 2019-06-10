@@ -20,7 +20,6 @@ var corsOption = {
 
 
 app.use(cors(corsOption));
-app.use(clientErrorHandler);
 
 app.get('/home_timeline', (req, res) => {
     const params = { q: 'UTT', lang :'fr', geocode : '48.3,4.0833,10km', count: 10 };
@@ -46,11 +45,5 @@ app.get('/home_timeline', (req, res) => {
 
 });
 
-function clientErrorHandler(err, req, res, next) {
-  if (req.xhr) {
-    res.status(500).send({ error: 'Something failed!' });
-  } else {
-    next(err);
-  }
-}
+
 app.listen(3000, () => console.log('Server running'))
