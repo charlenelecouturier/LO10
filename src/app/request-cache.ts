@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpRequest, HttpResponse } from '@angular/common/http';
 
-const maxAge = 300000;
+const maxAge = 300000; // le cache expire apres 5 min
 @Injectable()
 
 export class RequestCache  {
@@ -14,11 +14,18 @@ export class RequestCache  {
 
     if (!cached) {
       return undefined;
-    }
+    }else{
 
     const isExpired = cached.lastRead < (Date.now() - maxAge);
     const expired = isExpired ? 'expired ' : '';
-    return cached.response;
+    if(expired){// si le cache est expiré
+      this.cache.delete(url) //on supprime l'url
+      return undefined;
+
+    }else  { // le cache n'est pas expiré
+    return cached.response; // on retourne la réponse du cache
+  }
+}
   }
 
   put(req: HttpRequest<any>, response: HttpResponse<any>): void {
