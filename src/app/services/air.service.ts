@@ -8,12 +8,12 @@ import { catchError, retry } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class AirService {
-
-  constructor(private http: HttpClient) { }
-}
+  public air:any;
+  constructor(private httpClient: HttpClient) { }
 
 getAirFromServer() {
 
-  return this.httpClient.get<any>("api.airvisual.com/v2/nearest_city?lat=48.20&lon=4.17&key=Lx9iNW5FznNYqE4Px");
+  return this.httpClient.get<any>("http://api.airvisual.com/v2/nearest_city?lat=48.20&lon=4.17&key=Lx9iNW5FznNYqE4Px");
 
+  }
 }

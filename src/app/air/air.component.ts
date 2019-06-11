@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { MeteoService } from '../services/air.service';
+import { AirService } from '../services/air.service';
 import { Observable } from 'rxjs/Observable';
 @Component({
   selector: 'app-air',
@@ -7,7 +7,15 @@ import { Observable } from 'rxjs/Observable';
   styleUrls: ['./air.component.css']
 })
 export class AirComponent implements OnInit {
-data:any;
+  data: {
+    city: string,
+    country: string,
+    current: any,
+    location: any,
+    state: string
+  } | null = null;
+
+  aqi: number;
 
   constructor(private airService: AirService ) { }
 
@@ -17,11 +25,11 @@ data:any;
   }
 
   onFetch() {
-    this.airService.getAirFromServer()
-    .subscribe(
-    res =>this.data=res.data,
-    err =>console.log(err)
-    )
+    this.airService.getAirFromServer().subscribe(res => {
+      console.log(res);
+      this.data = res.data;
+      this.aqi = this.data.current.pollution.aqius;
+    })
 
   }
 
