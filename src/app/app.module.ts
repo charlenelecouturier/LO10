@@ -29,8 +29,13 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import { InstaComponent } from './insta/insta.component';
 import {RouterModule, Routes} from '@angular/router';
 import { FooterComponent } from './footer/footer.component';
+<<<<<<< HEAD
 import { AirComponent } from './air/air.component';
 import { RequestCache } from './request-cache'
+=======
+import { RequestCache } from './request-cache';
+
+>>>>>>> 9e0fa1c55e67dbc6ba40d8a3650b1e78c1218dc4
 
 const appRoutes: Routes = [
   { path: '', component: MapComponent },
