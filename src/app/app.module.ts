@@ -6,8 +6,10 @@ import { AppComponent } from './app.component';
 import { TwitterService } from './services/twitter.service';
 import {MeteoService } from './services/meteo.service';
 import {FirebaseService } from './services/firebase.service';
-import { HttpErrorInterceptor } from './http-error-interceptor';
-import { HttpURLInterceptor } from './http-urlinterceptor';
+import { HttpErrorInterceptor } from './interceptor/http-error-interceptor';
+import { HttpURLInterceptor } from './interceptor/http-urlinterceptor';
+  import { CacheInterceptor  } from './interceptor/cache-interceptor';
+  import { ProfilingInterceptor  } from './interceptor/profiling-interceptor';
 
 
 import {InstaService } from './services/insta.service';
@@ -28,6 +30,7 @@ import { InstaComponent } from './insta/insta.component';
 import {RouterModule, Routes} from '@angular/router';
 import { FooterComponent } from './footer/footer.component';
 import { AirComponent } from './air/air.component';
+import { RequestCache } from './request-cache'
 
 const appRoutes: Routes = [
   { path: '', component: MapComponent },
@@ -70,16 +73,29 @@ const appRoutes: Routes = [
     MeteoService,
     InstaService,
     FirebaseService,
+    RequestCache,
     {
      provide: HTTP_INTERCEPTORS,
      useClass: HttpURLInterceptor,
      multi: true
    },
+   {
+    provide: HTTP_INTERCEPTORS,
+    useClass: CacheInterceptor,
+    multi: true
+  },
+   {
+    provide: HTTP_INTERCEPTORS,
+    useClass: ProfilingInterceptor,
+    multi: true
+  },
     {
      provide: HTTP_INTERCEPTORS,
      useClass: HttpErrorInterceptor,
      multi: true
    },
+
+
   ],
   bootstrap: [AppComponent],
 })
