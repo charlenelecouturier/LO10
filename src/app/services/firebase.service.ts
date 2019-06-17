@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders  } from '@angular/common/http';
 import { Subject } from 'rxjs/Subject';
+import { Observable, throwError } from 'rxjs';
+import { HttpErrorResponse } from '@angular/common/http';
+import { catchError, retry } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
@@ -14,7 +17,9 @@ export class FirebaseService {
      }
 
   emitSubject(){
+    if(this.data!=null){
     this.dataSubject.next(this.data.slice());
+  }
   }
 
 

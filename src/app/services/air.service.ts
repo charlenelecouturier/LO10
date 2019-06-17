@@ -7,16 +7,13 @@ import { catchError, retry } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
-export class MeteoService {
-public meteo:any;
-    constructor(private httpClient: HttpClient) {
-     }
+export class AirService {
+  public air:any;
+  constructor(private httpClient: HttpClient) { }
 
+getAirFromServer() {
 
+  return this.httpClient.get<any>("http://api.airvisual.com/v2/nearest_city?lat=48.20&lon=4.17&key=Lx9iNW5FznNYqE4Px");
 
-     getMeteoFromServer() {
-
-       return this.httpClient.get<any>('http://api.openweathermap.org/data/2.5/weather?lat=48.1958&lon=4.1686&APPID=98390e412efe7676508d16f0d4c1e10e&units=metric');
-
-   }
- }
+  }
+}

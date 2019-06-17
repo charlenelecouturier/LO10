@@ -7,16 +7,24 @@ import { catchError, retry } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
-export class MeteoService {
-public meteo:any;
+export class InstaService {
+
+
+
+  private data:any[];
+
     constructor(private httpClient: HttpClient) {
      }
 
 
 
-     getMeteoFromServer() {
+  getFromServer() {
 
-       return this.httpClient.get<any>('http://api.openweathermap.org/data/2.5/weather?lat=48.1958&lon=4.1686&APPID=98390e412efe7676508d16f0d4c1e10e&units=metric');
+      return this.httpClient
+        .get<instagramInterface>('https://api.instagram.com/v1/users/self/media/recent/?access_token=14328747028.11e9581.89ea81d4fc50446ca21d1d529e1735d8')
 
-   }
- }
+}
+}
+interface instagramInterface {
+  "data":[]
+}

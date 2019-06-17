@@ -11,7 +11,7 @@ import 'hammerjs';
 })
 export class MeteoComponent implements OnInit {
 meteo={
-weather:[{description:""}],
+weather:[{description:"", icon:""}],
 main:{temp:""}
 };
 src="";
@@ -25,44 +25,11 @@ src="";
     }
 
 image(){
-var  description= this.meteo.weather[0].description;
-  switch (description) {
-  case 'clear sky':
-  return  this.src="http:\//openweathermap.org/img/w/01d.png";
-    break;
-  case 'few clouds':
-    return this.src="http:\//openweathermap.org/img/w/02d.png";
-    break;
-    case 'scattered clouds':
-      return this.src="http:\//openweathermap.org/img/w/03d.png";
-      break;
-      case 'overcast clouds':
-        return this.src="http:\//openweathermap.org/img/w/03d.png";
-        break;
-        case 'shower rain':
-        return  this.src="http:\//openweathermap.org/img/w/09d.png";
-          break;
 
-          case 'rain':
-        return    this.src="http:\//openweathermap.org/img/w/10d.png";
-            break;
-            case 'light rain':
-              return    this.src="http:\//openweathermap.org/img/w/10d.png";
-            break;
-            case 'thunderstorm':
-          return    this.src="http:\//openweathermap.org/img/w/11d.png";
-              break;
-              case 'snow':
-            return    this.src="http:\//openweathermap.org/img/w/13d.png";
-                break;
-                case 'mist':
-              return    this.src="http:\//openweathermap.org/img/w/50d.png";
-                  break;
-                  case "broken clouds":
-                  return  this.src="http:\//openweathermap.org/img/w/04d.png";
-                    break;
+  return  this.src="http:\//openweathermap.org/img/w/"+this.meteo.weather[0].icon+".png";
+
 }
-}
+
 onFetch() {
   this.meteoService.getMeteoFromServer()
   .subscribe(

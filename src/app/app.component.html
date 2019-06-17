@@ -2,7 +2,10 @@
   <mat-sidenav id ="sidenav1" #sidenav mode="over">
 
     <div class="container">
+      <div *ngIf="data!=undefined">
+
   <br>
+      <div class="container">
 <h3> <b>Programme du jour : </b></h3>
 <br>
 
@@ -36,26 +39,20 @@
   <li *ngFor="let menu of data[1].Menu[1].Nourriture" > {{menu.name}} : {{menu.price}}€</li>
   </ul>
 </div>
-  </div>
+  </div>  </div>
+</div>
+
 </mat-sidenav>
   <mat-sidenav-content>
-    <app-facebook></app-facebook>
     <app-navbar></app-navbar>
-    <button mat-button (click)="sidenav.toggle()">Infos utiles</button>
+    <button mat-button (click)="onFetch(); sidenav.toggle()">Infos utiles</button>
     <twitter-open></twitter-open>
 
     <button mat-button onclick="javascript:location.href='https://billetterie.bde.utt.fr/'">Billeterie</button>
-
-
-
-
-<app-map></app-map>
+    <button mat-button routerLink="insta" routerLinkActive="active">Les photos Instagram</button>
+    <button mat-button routerLink="" routerLinkActive="active">Map</button>
+    <router-outlet></router-outlet>
+    <app-footer></app-footer>
 
   </mat-sidenav-content>
 </mat-sidenav-container>
-
-
-
-
-
-<router-outlet></router-outlet>
