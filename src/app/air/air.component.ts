@@ -27,17 +27,17 @@ icon;
   quality(){
     if (this.aqi<=50){
       this.icon="/assets/in-love.svg"
-      return "Bien"
+      return "Très Bien"
     }
     else if(this.aqi>=50 && this.aqi<=100){
       this.icon="happy.svg"
 
-      return "Modéré"
+      return "Bien"
     }
     else if(this.aqi>=101 && this.aqi<=150){
       this.icon="/assets/confused.svg"
 
-      return "Mauvais (personnes sensibles)"
+      return "Moyen"
     }    else if(this.aqi>=151 && this.aqi<=200){
       this.icon="/assets/sad.svg"
 

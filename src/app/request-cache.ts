@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpRequest, HttpResponse } from '@angular/common/http';
 
-const maxAge = 300000; // le cache expire apres 5 min
+const maxAge = 180000; // le cache expire apres 5 min
 @Injectable()
 
 export class RequestCache  {
