@@ -30,7 +30,8 @@ import { InstaComponent } from './insta/insta.component';
 import {RouterModule, Routes} from '@angular/router';
 import { FooterComponent } from './footer/footer.component';
 import { AirComponent } from './air/air.component';
-import { RequestCache } from './request-cache'
+import { RequestCache } from './request-cache';
+import { app-facebook } from './facebook/facebook.component';
 
 const appRoutes: Routes = [
   { path: '', component: MapComponent },
