@@ -7,7 +7,7 @@ import { Observable } from 'rxjs/Observable';
   styleUrls: ['./air.component.css']
 })
 export class AirComponent implements OnInit {
-  air: {
+  data: {
     city: string,
     country: string,
     current: any,
@@ -51,8 +51,8 @@ icon;
 
   onFetch() {
     this.airService.getAirFromServer().subscribe(res => {
-      this.air = res.air;
-      this.aqi = this.air.current.pollution.aqius;
+      this.data = res.data;
+      this.aqi = this.data.current.pollution.aqius;
     })
 
   }
