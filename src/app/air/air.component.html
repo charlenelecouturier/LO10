@@ -1,4 +1,6 @@
 
+<div *ngIf="aqi">
 
-<span> US AQI: {{aqi}} Bien</span>
-<img src="/assets/ic-face-1-white.svg">
+<span> US AQI: {{aqi}} {{quality() }}    </span>
+<img class="smiley" height="20" width="20" src="{{icon}}">
+</div>
