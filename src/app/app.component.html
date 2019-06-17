@@ -1,1 +1,61 @@
-<app-appareil-view></app-appareil-view>
+<mat-sidenav-container class="example-container">
+  <mat-sidenav id ="sidenav1" #sidenav mode="over">
+
+    <div class="container">
+  <br>
+<h3> <b>Programme du jour : </b></h3>
+<br>
+
+  <div>
+    <h4> <i>Les activités :</i></h4>
+    <br>
+    <ul>
+
+    <li *ngFor="let activities of data[0].Activities" > {{activities.hour}} : {{activities.name}}</li>
+
+  </ul>
+    </div>
+    <br>
+
+  <div>
+    <h4> <i>Pour te restaurer : </i></h4>
+    <br>
+
+    <h5> <i>Boissons</i></h5>
+
+      <ul>
+    <li *ngFor="let menu of data[1].Menu[0].Boissons" > {{menu.name}} : {{menu.price}}€ </li>
+  </ul>
+  </div>
+  <div>
+    <h5> <i>Plats</i></h5>
+
+  <ul>
+
+
+  <li *ngFor="let menu of data[1].Menu[1].Nourriture" > {{menu.name}} : {{menu.price}}€</li>
+  </ul>
+</div>
+  </div>
+</mat-sidenav>
+  <mat-sidenav-content>
+    <app-facebook></app-facebook>
+    <app-navbar></app-navbar>
+    <button mat-button (click)="sidenav.toggle()">Infos utiles</button>
+    <twitter-open></twitter-open>
+
+    <button mat-button onclick="javascript:location.href='https://billetterie.bde.utt.fr/'">Billeterie</button>
+
+
+
+
+<app-map></app-map>
+
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+
+
+
+
+<router-outlet></router-outlet>

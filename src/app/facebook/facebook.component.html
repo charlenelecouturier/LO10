@@ -1,1 +1,16 @@
-<div class="fb-login-button" data-width="" data-size="large" data-button-type="continue_with" data-auto-logout-link="true" data-use-continue-as="true"></div>
+<div class="authContainer" id="authContainer">
+  <div class="auth">
+    <div class="closeCross" onclick="closeAuthPopup()">
+      X
+    </div>
+    <div class="authContent">
+      <h1 id="authTitle">Je me connecte :</h1>
+    </div>
+    <div class="Content Facebook">
+      <p id="authTxt">Avec mon compte Facebook</p>
+      <div class="googleConnection" id="authButton" (click)="logFB();">
+        Continue with Facebook
+      </div>
+    </div>
+  </div>
+</div>

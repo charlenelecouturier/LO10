@@ -8,50 +8,42 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
-</head>
-<body ng-app='LO10'>
-  <app-root></app-root>
+  <script src='https://api.mapbox.com/mapbox-gl-js/v0.54.0/mapbox-gl.js'></script>
+  <link href='https://api.mapbox.com/mapbox-gl-js/v0.54.0/mapbox-gl.css' rel='stylesheet' />
   <script>
     window.fbAsyncInit = function() {
       FB.init({
-        appId      : '2062220704086998',
-        cookie     : true,
-        xfbml      : true,
-        version    : 'v3.3'
-      });
-
-      FB.AppEvents.logPageView();
-
-      FB.getLoginStatus(function(response) {
-          statusChangeCallback(response);
-
+        appId            : 'your-app-id',
+        autoLogAppEvents : true,
+        xfbml            : true,
+        version          : 'v3.3'
       });
     };
 
-    (function(d, s, id){
-       var js, fjs = d.getElementsByTagName(s)[0];
-       if (d.getElementById(id)) {return;}
-       js = d.createElement(s); js.id = id;
-       js.src = "https://connect.facebook.net/en_US/sdk.js";
-       fjs.parentNode.insertBefore(js, fjs);
-     }(document, 'script', 'facebook-jssdk'));
-
-    function statusChangeCallback(response){
-      // var isConnected = null;
-      // console.log("status :", response.status);
-      //
-      // if (response.status == "connected") {
-      //   isConnected = true;
-      //   console.log("is connected");
-      // }else {
-      //   isConnected = false;
-      //   console.log("is not connected");
-      //   FB.login()
-      // }
+    function closeAuthPopup(){
+      document.getElementById("authContainer").classList.add("isConnected");
     }
+
+    function openAuthPopup(){
+      document.getElementById("authContainer").classList.remove("isConnected");
+    }
+
   </script>
+  <script async defer src="https://connect.facebook.net/en_US/sdk.js"></script>
+</head>
 
 
 
+
+<body ng-app='LO10'>
+  <app-root></app-root>
+  <footer class="main-footer">
+                 <div class="container">
+                     <div>
+                         <a href="https://billetterie.bde.utt.fr/cgu-cgv.html">CGU - CGV</a>
+                     </div>
+                     <strong>En cas de problème,</strong> <a href="mailto:bde@utt.fr">contactez nous</a>
+                 </div>
+             </footer>
 </body>
 </html>

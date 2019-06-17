@@ -10,18 +10,22 @@ import 'hammerjs';
   styleUrls: ['./meteo.component.css']
 })
 export class MeteoComponent implements OnInit {
-meteo;
+meteo={
+weather:[{description:""}],
+main:{temp:""}
+};
 src="";
 
   constructor(private meteoService: MeteoService) { }
 
 
   ngOnInit() {
-this.onFetch();
-window.setInterval(() =>this.onFetch(), 300000);// on actualise le fil toutes les 5 minutes (rate limite = 60 requetes  pour 1 minutes d'après l'api  openweathermap)
-}
+    this.onFetch();
+    window.setInterval(() =>this.onFetch(), 300000);// on actualise le fil toutes les 5 minutes (rate limite = 60 requetes  pour 1 minutes d'après l'api  openweathermap)
+    }
 
-image(description){
+image(){
+var  description= this.meteo.weather[0].description;
   switch (description) {
   case 'clear sky':
   return  this.src="http:\//openweathermap.org/img/w/01d.png";
@@ -32,8 +36,8 @@ image(description){
     case 'scattered clouds':
       return this.src="http:\//openweathermap.org/img/w/03d.png";
       break;
-      case 'broken clouds':
-      return  this.src="http:\//openweathermap.org/img/w/04d.png";
+      case 'overcast clouds':
+        return this.src="http:\//openweathermap.org/img/w/03d.png";
         break;
         case 'shower rain':
         return  this.src="http:\//openweathermap.org/img/w/09d.png";
@@ -41,6 +45,9 @@ image(description){
 
           case 'rain':
         return    this.src="http:\//openweathermap.org/img/w/10d.png";
+            break;
+            case 'light rain':
+              return    this.src="http:\//openweathermap.org/img/w/10d.png";
             break;
             case 'thunderstorm':
           return    this.src="http:\//openweathermap.org/img/w/11d.png";
@@ -51,6 +58,9 @@ image(description){
                 case 'mist':
               return    this.src="http:\//openweathermap.org/img/w/50d.png";
                   break;
+                  case "broken clouds":
+                  return  this.src="http:\//openweathermap.org/img/w/04d.png";
+                    break;
 }
 }
 onFetch() {

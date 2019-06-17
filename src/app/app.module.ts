@@ -1,11 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {HttpClientModule} from '@angular/common/http';
-
+import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TwitterService } from './services/twitter.service';
-import {MeteoService } from './services/meteo.service';
+import { MeteoService } from './services/meteo.service';
+import { FirebaseService } from './services/firebase.service';
 
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
@@ -17,21 +17,9 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatDialogModule } from '@angular/material/dialog';
 import { TwitterComponent, TwitterOpenComponent } from './twitter/twitter.component';
 import { MeteoComponent } from './meteo/meteo.component';
+import { MapComponent } from './map/map.component';
 import { FacebookComponent } from './facebook/facebook.component';
-import { AuthComponent } from './auth/auth.component';
-import { AppareilViewComponent } from './appareil-view/appareil-view.component';
-
-// import { MonPremierComponent } from './mon-premier/mon-premier.component';
-import { FormsModule } from '@angular/forms';
-// import { AppareilService } from './services/appareil.service';
-import { Routes } from '@angular/router';
-import { RouterModule } from '@angular/router';
-
-const appRoutes: Routes = [
-  { path: 'map', component: AppareilViewComponent },
-  { path: 'auth', component: AuthComponent },
-  { path: '', component: AppareilViewComponent }
-];
+import { MatSidenavModule } from '@angular/material/sidenav';
 
 @NgModule({
   declarations: [
@@ -40,9 +28,8 @@ const appRoutes: Routes = [
     TwitterComponent,
     TwitterOpenComponent,
     MeteoComponent,
+    MapComponent,
     FacebookComponent,
-    AuthComponent,
-    AppareilViewComponent,
   ],
   imports: [
     BrowserModule,
@@ -50,13 +37,13 @@ const appRoutes: Routes = [
     AppRoutingModule,
     BrowserAnimationsModule,
     BsDropdownModule.forRoot(),
-   TooltipModule.forRoot(),
-   ModalModule.forRoot(),
-   MatButtonModule,
-   MatToolbarModule,
-   MatDialogModule,
-   MatCheckboxModule,
-   RouterModule.forRoot(appRoutes)
+    TooltipModule.forRoot(),
+    ModalModule.forRoot(),
+    MatButtonModule,
+    MatToolbarModule,
+    MatDialogModule,
+    MatCheckboxModule,
+    MatSidenavModule
  ],
 
  entryComponents: [
