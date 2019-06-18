@@ -20,9 +20,9 @@ src="";
 
 
   ngOnInit() {
-this.onFetch();
-window.setInterval(() =>this.onFetch(), 300000);// on actualise le fil toutes les 5 minutes (rate limite = 60 requetes  pour 1 minutes d'après l'api  openweathermap)
-}
+    this.onFetch();
+    window.setInterval(() =>this.onFetch(), 300000);// on actualise le fil toutes les 5 minutes (rate limite = 60 requetes  pour 1 minutes d'après l'api  openweathermap)
+    }
 
 image(){
 

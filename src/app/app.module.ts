@@ -1,36 +1,36 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TwitterService } from './services/twitter.service';
-import {MeteoService } from './services/meteo.service';
-import {FirebaseService } from './services/firebase.service';
+import { FirebaseService } from './services/firebase.service';
 import { HttpErrorInterceptor } from './interceptor/http-error-interceptor';
 import { HttpURLInterceptor } from './interceptor/http-urlinterceptor';
-  import { CacheInterceptor  } from './interceptor/cache-interceptor';
-  import { ProfilingInterceptor  } from './interceptor/profiling-interceptor';
+import { CacheInterceptor  } from './interceptor/cache-interceptor';
+import { ProfilingInterceptor  } from './interceptor/profiling-interceptor';
 
 
-import {InstaService } from './services/insta.service';
+import { InstaService } from './services/insta.service';
 
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { NavbarComponent } from './navbar/navbar.component';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatButtonModule, MatCheckboxModule} from '@angular/material';
-import {MatToolbarModule} from '@angular/material/toolbar';
-import {MatDialogModule} from '@angular/material/dialog';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatButtonModule, MatCheckboxModule } from '@angular/material';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatDialogModule } from '@angular/material/dialog';
 import { TwitterComponent, TwitterOpenComponent } from './twitter/twitter.component';
 import { MeteoComponent } from './meteo/meteo.component';
 import { MapComponent } from './map/map.component';
-import {MatSidenavModule} from '@angular/material/sidenav';
+import { MatSidenavModule } from '@angular/material/sidenav';
 import { InstaComponent } from './insta/insta.component';
-import {RouterModule, Routes} from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { FooterComponent } from './footer/footer.component';
 import { AirComponent } from './air/air.component';
-import { RequestCache } from './request-cache'
+import { RequestCache } from './request-cache';
+// import { FacebookComponent } from './facebook/facebook.component';
 
 const appRoutes: Routes = [
   { path: '', component: MapComponent },

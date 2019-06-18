@@ -18,13 +18,13 @@ constructor(private firebaseService: FirebaseService) {
 
 
 
-    ngOnInit() {
+  ngOnInit() {
     this.dataSubscription = this.firebaseService.dataSubject.subscribe(
      (data: any[]) => {
         this.data = data;
       }
     );
-  this.onFetch();
+    this.onFetch();
   }
 
   ngOnDestroy(){
