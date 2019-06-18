@@ -13,7 +13,6 @@ import { ProfilingInterceptor  } from './interceptor/profiling-interceptor';
 
 
 import { InstaService } from './services/insta.service';
-import {MeteoService } from './services/meteo.service';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { ModalModule } from 'ngx-bootstrap/modal';
@@ -24,7 +23,6 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatDialogModule } from '@angular/material/dialog';
 import { TwitterComponent, TwitterOpenComponent } from './twitter/twitter.component';
 import { MeteoComponent } from './meteo/meteo.component';
-import { FacebookComponent } from './facebook/facebook.component';
 
 import { MapComponent } from './map/map.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -33,7 +31,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { FooterComponent } from './footer/footer.component';
 import { AirComponent } from './air/air.component';
 import { RequestCache } from './request-cache';
-import { FacebookComponent } from './facebook/facebook.component';
 
 const appRoutes: Routes = [
   { path: '', component: MapComponent },
@@ -45,14 +42,12 @@ const appRoutes: Routes = [
     AppComponent,
     NavbarComponent,
     TwitterComponent,
-    FacebookComponent,
     TwitterOpenComponent,
     MeteoComponent,
     MapComponent,
     InstaComponent,
     FooterComponent,
     AirComponent,
-    FacebookComponent,
   ],
   imports: [
     BrowserModule,
