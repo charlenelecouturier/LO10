@@ -4,6 +4,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TwitterService } from './services/twitter.service';
+import { MeteoService } from './services/meteo.service';
 import { FirebaseService } from './services/firebase.service';
 import { HttpErrorInterceptor } from './interceptor/http-error-interceptor';
 import { HttpURLInterceptor } from './interceptor/http-urlinterceptor';
@@ -30,7 +31,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { FooterComponent } from './footer/footer.component';
 import { AirComponent } from './air/air.component';
 import { RequestCache } from './request-cache';
-// import { FacebookComponent } from './facebook/facebook.component';
+import { FacebookComponent } from './facebook/facebook.component';
 
 const appRoutes: Routes = [
   { path: '', component: MapComponent },
@@ -48,6 +49,7 @@ const appRoutes: Routes = [
     InstaComponent,
     FooterComponent,
     AirComponent,
+    FacebookComponent,
   ],
   imports: [
     BrowserModule,
