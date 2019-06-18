@@ -12,7 +12,7 @@ export class FacebookComponent implements OnInit {
 
   logFB() {
     FB.api('/me', function(response) {
-      if(response.name) {
+      if(response) {
         FB.logout(function(response) {
           document.getElementById("loginLogout").innerHTML = "Se connecter";
           document.getElementById("authTitle").innerHTML = "Je me connecte :";
