@@ -1,6 +1,5 @@
 Rapport du projet :
-
-https://docs.google.com/document/d/1XM_QO5EOQaQi1EzpmrbHj2ZXk773xqIwQqFV5Qcvsts/edit
+https://docs.google.com/document/d/1XM_QO5EOQaQi1EzpmrbHj2ZXk773xqIwQqFV5Qcvsts/edit?usp=sharing
 
 # LO10
 
